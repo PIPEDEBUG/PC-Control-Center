@@ -1,0 +1,57 @@
+{
+  "name": "pc-control-center",
+  "version": "1.0.0",
+  "description": "Aplicación de escritorio para administrar y monitorear diferentes aspectos de un PC con Windows.",
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "windows",
+    "system-monitor",
+    "pc-control",
+    "system-information"
+  ],
+  "author": "Felipe Cortés Pérez",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^43.4.1",
+    "electron-builder": "^26.0.0"
+  },
+  "dependencies": {
+    "systeminformation": "^5.33.1"
+  },
+  "build": {
+    "appId": "com.feli.pccontrolcenter",
+    "productName": "PC Control Center",
+    "artifactName": "PC-Control-Center-Setup-${version}.${ext}",
+    "asar": true,
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PC Control Center"
+    }
+  }
+}

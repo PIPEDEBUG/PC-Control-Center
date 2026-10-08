@@ -1,0 +1,33 @@
+# Dependencias
+node_modules/
+
+# Builds
+dist/
+build/
+out/
+
+# Archivos de entorno
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Archivos temporales
+temp/
+tmp/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Archivos temporales de Electron
+*.crash
