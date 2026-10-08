@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self';"
+    >
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PC Control Center</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    PC
+                </div>
+
+                <div>
+                    <h1>PC Control</h1>
+                    <span>Center</span>
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <button
+                    class="nav-item active"
+                    data-page="home"
+                >
+                    <span>⌂</span>
+                    Inicio
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="system"
+                >
+                    <span>▣</span>
+                    Sistema
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="programs"
+                >
+                    <span>▦</span>
+                    Programas
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="cleaner"
+                >
+                    <span>✦</span>
+                    Limpieza
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="disks"
+                >
+                    <span>▤</span>
+                    Discos
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="startup"
+                >
+                    <span>↗</span>
+                    Arranque
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="network"
+                >
+                    <span>◎</span>
+                    Red
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    class="nav-item"
+                    data-page="settings"
+                >
+                    <span>⚙</span>
+                    Configuración
+                </button>
+
+            </div>
+
+        </aside>
+
+        <main class="content">
+
+            <section
+                id="page-home"
+                class="page active-page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Resumen del Sistema
+                        </h2>
+
+                        <p>
+                            Información general de tu computador
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="refreshButton"
+                        class="refresh-button"
+                    >
+                        ↻ Actualizar
+                    </button>
+
+                </header>
+
+                <section
+                    id="loading"
+                    class="loading"
+                >
+                    Obteniendo información del computador...
+                </section>
+
+                <section
+                    id="dashboard"
+                    class="dashboard hidden"
+                >
+
+                    <div class="cards-grid">
+
+
+                        <article class="card">
+
+                            <div class="card-header">
+
+                                <span class="card-icon">
+                                    CPU
+                                </span>
+
+                                <span class="card-label">
+                                    Procesador
+                                </span>
+
+                            </div>
+
+
+                            <h3 id="cpuName">
+                                -
+                            </h3>
+
+
+                            <div class="card-details">
+
+                                <span id="cpuCores">
+                                    -
+                                </span>
+
+                                <span id="cpuSpeed">
+                                    -
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="card">
+
+                            <div class="card-header">
+
+                                <span class="card-icon">
+                                    RAM
+                                </span>
+
+                                <span class="card-label">
+                                    Memoria
+                                </span>
+
+                            </div>
+
+
+                            <h3 id="ramTotal">
+                                -
+                            </h3>
+
+
+                            <div class="progress">
+
+                                <div
+                                    id="ramProgress"
+                                    class="progress-bar"
+                                >
+                                </div>
+
+                            </div>
+
+
+                            <div class="card-details">
+
+                                <span id="ramUsed">
+                                    -
+                                </span>
+
+                                <span id="ramPercentage">
+                                    -
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                        <article class="card">
+
+                            <div class="card-header">
+
+                                <span class="card-icon">
+                                    GPU
+                                </span>
+
+                                <span class="card-label">
+                                    Gráficos
+                                </span>
+
+                            </div>
+
+
+                            <h3 id="gpuName">
+                                -
+                            </h3>
+
+
+                            <div class="card-details">
+
+                                <span id="gpuVendor">
+                                    -
+                                </span>
+
+                                <span id="gpuVram">
+                                    -
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="card">
+
+                            <div class="card-header">
+
+                                <span class="card-icon">
+                                    OS
+                                </span>
+
+                                <span class="card-label">
+                                    Sistema Operativo
+                                </span>
+
+                            </div>
+
+
+                            <h3 id="osName">
+                                -
+                            </h3>
+
+
+                            <div class="card-details">
+
+                                <span id="osBuild">
+                                    -
+                                </span>
+
+                                <span id="osArch">
+                                    -
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <section class="information-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Equipo
+                                </h3>
+
+                                <p>
+                                    Información del Hardware
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-grid">
+
+
+                            <div class="info-item">
+
+                                <span>
+                                    Fabricante
+                                </span>
+
+                                <strong id="pcManufacturer">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <span>
+                                    Modelo
+                                </span>
+
+                                <strong id="pcModel">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <span>
+                                    Placa Madre
+                                </span>
+
+                                <strong id="motherboard">
+                                    -
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="information-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>
+                                    Almacenamiento
+                                </h3>
+
+                                <p>
+                                    Uso de las unidades
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="diskList"
+                            class="disk-list"
+                        >
+                        </div>
+
+                    </section>
+
+                </section>
+
+
+
+                <section
+                    id="errorMessage"
+                    class="error-message hidden"
+                >
+                </section>
+
+            </section>
+
+            <section
+                id="page-system"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Sistema
+                        </h2>
+
+                        <p>
+                            Información detallada del hardware y Windows
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="information-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Información del sistema
+                            </h3>
+
+                            <p>
+                                Próximamente agregaremos información avanzada
+                                del hardware.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <section
+                id="page-programs"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Programas instalados
+                        </h2>
+
+                        <p>
+                            Aplicaciones detectadas en Windows
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="refreshProgramsButton"
+                        class="refresh-button"
+                    >
+                        ↻ Actualizar
+                    </button>
+
+                </header>
+
+
+                <div class="programs-toolbar">
+
+                    <input
+                        id="programSearch"
+                        class="program-search"
+                        type="search"
+                        placeholder="Buscar programa..."
+                        autocomplete="off"
+                    >
+
+
+                    <span
+                        id="programCount"
+                        class="program-count"
+                    >
+                        0 programas
+                    </span>
+
+                </div>
+
+                <div
+                    id="programsLoading"
+                    class="loading hidden"
+                >
+                    Buscando programas instalados...
+                </div>
+
+
+                <div
+                    id="programsError"
+                    class="error-message hidden"
+                >
+                </div>
+
+                <div
+                    id="programList"
+                    class="program-list"
+                >
+                </div>
+
+            </section>
+
+            <section
+                id="page-cleaner"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Limpieza
+                        </h2>
+
+                        <p>
+                            Archivos temporales y caché del sistema
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="information-panel">
+
+                    <p class="page-description">
+                        Próximamente podremos analizar archivos
+                        temporales y calcular cuánto espacio puede
+                        recuperarse.
+                    </p>
+
+                </section>
+
+            </section>
+
+            <section
+                id="page-disks"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Discos
+                        </h2>
+
+                        <p>
+                            Información detallada del almacenamiento
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="information-panel">
+
+                    <p class="page-description">
+                        Próximamente mostraremos información avanzada
+                        de SSD, HDD, capacidad y uso.
+                    </p>
+
+                </section>
+
+            </section>
+
+            <section
+                id="page-startup"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Arranque
+                        </h2>
+
+                        <p>
+                            Aplicaciones que se ejecutan al iniciar Windows
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="information-panel">
+
+                    <p class="page-description">
+                        Próximamente podremos consultar y administrar
+                        programas de inicio.
+                    </p>
+
+                </section>
+
+            </section>
+
+            <section
+                id="page-network"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Red
+                        </h2>
+
+                        <p>
+                            Información y herramientas de red
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="information-panel">
+
+                    <p class="page-description">
+                        Próximamente mostraremos adaptadores,
+                        direcciones IP, DNS y herramientas de diagnóstico.
+                    </p>
+
+                </section>
+
+            </section>
+
+            <section
+                id="page-settings"
+                class="page"
+            >
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h2>
+                            Configuración
+                        </h2>
+
+                        <p>
+                            Preferencias de PC Control Center
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <section class="information-panel">
+
+                    <p class="page-description">
+                        Aquí agregaremos las preferencias de la
+                        aplicación.
+                    </p>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
