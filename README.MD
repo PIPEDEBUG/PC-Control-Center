@@ -97,8 +97,6 @@ Descarga el instalador `.exe` y sigue las instrucciones del instalador.
 
 Clona el repositorio:
 
--- Para descargar el ejecutable por favor ingresar a los releases
-
 ```bash
 git clone https://github.com/PIPEDEBUG/PC-Control-Center.git
 
